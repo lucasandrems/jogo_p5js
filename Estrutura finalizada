@@ -1,0 +1,185 @@
+var xb, xVoltar, yb1, yb2, yb3, yVoltar, larguraB, larguraV, alturaV, alturaB, suavizaB, fontTitulo, imgTutorial; //Variaveis
+
+var tela=0 // Tela inicial
+
+function setup()//confugurações do ambiente e das variavies
+{
+  createCanvas(500, 500);
+  xb=150
+  yb1=150
+  yb2=250
+  yb3=350
+  larguraB=200
+  alturaB=60
+  suavizaB=12
+  xVoltar=400
+  yVoltar=440
+  larguraV=70
+  alturaV=40
+}
+
+function draw()//Produção do menu(jogo/tutorial/creditos)
+{
+  if(tela==0)//Tela inicial
+  {
+    background(35,31,32);//Plano de fundo 
+    textSize(50)//tamanho do texto
+    textFont("cursive")//Estilo da Fonte
+    fill(255,171,5)//Cor da Fonte
+    text("Jogo dos 7 Erros",xb-100,yb1-50)//Texto e o posicionamento do texto
+  
+    fill(212,212,212)//Cor da Caixa
+    if(mouseY>yb1 && mouseY<yb1 + alturaB && mouseX>xb && mouseX<xb+larguraB)
+    {
+      fill(255,171,5)//Cor do botao caso o mouse fique sobre o botao
+    }
+    rect(xb,yb1,larguraB,alturaB,suavizaB)//Estrutura do botao(posicao, largura, altura e curvatura dos botoes)
+    fill(0)//Cor do texto da botao
+    textSize(28)//tamanho do texto 
+    text("Jogar",xb+65,yb1+40)//Texto e o posicionamento do texto
+  
+    fill(212,212,212)
+    if(mouseY>yb2 && mouseY<yb2 + alturaB && mouseX>xb && mouseX<xb+larguraB)
+    {
+        fill(255,171,5)
+    } 
+    rect(xb,yb2,larguraB,alturaB,suavizaB)//tamanho da caixa
+    fill(0)//cor do texto
+    textSize(28)//tamanho do texto 
+    text("Tutorial",xb+48,yb2+40)//texto dentro da caixa
+  
+    fill(212,212,212)
+    if(mouseY>yb3 && mouseY<yb3 + alturaB && mouseX>xb && mouseX<xb+larguraB)
+    {
+      fill(255,171,5)
+    } 
+    rect(xb,yb3,larguraB,alturaB,suavizaB)//tamanho da caixa
+    fill(0)//cor do texto
+    textSize(28)//tamanho do texto 
+    text("Créditos",xb+45,yb3+40)//texto dentro da caixa
+    fill(255)
+  }
+  if(tela==1)//Tela Jogar
+  {
+    background(35,31,32)
+    image(img1,+25,+110)
+    fill(255)
+    textSize(50)
+    fill(255,171,5)
+    text("Encontre os Erros", xb-110,yb1-80)
+    
+    noFill()
+    if(mouseY>yVoltar && mouseY<yVoltar + alturaV && mouseX>xVoltar && mouseX<xVoltar+larguraV)
+    {
+      fill(255,171,5)
+    }
+    rect(xVoltar, yVoltar, larguraV, alturaV, suavizaB)
+    fill(0)
+    textSize(20)
+    text("Voltar", xVoltar+5, yVoltar+27)
+  }
+  if(tela==2)//Tela Tutorial
+  {
+    background(35,31,32)
+    image(imgTutorial,+25,+110)
+    fill(255)
+    textSize(50)
+    fill(255,171,5)
+    text("Tutorial", xb+30,yb1-70)
+    
+    noFill()
+    if(mouseY>yVoltar && mouseY<yVoltar + alturaV && mouseX>xVoltar && mouseX<xVoltar+larguraV)
+    {
+      fill(255,171,5)
+    }
+    rect(xVoltar, yVoltar, larguraV, alturaV, suavizaB)
+    fill(0)
+    textSize(20)
+    text("Voltar", xVoltar+5, yVoltar+27)
+  }
+  if(tela==3)//Tela Creditos
+  {
+    background(35,31,32)
+    fill(255)
+    textSize(50)
+    fill(255,171,5)
+    text("Créditos", xb+15,yb1-70)
+    textSize(40)
+    fill(212,212,212)
+    text("Produtor:", xb+30,yb1+10)
+    textSize(30)
+    text("Lucas André de Medeiros Siqueira", xb-140,yb1+50)
+    textSize(30)
+    text("BCT/UFRN", xb+30,yb1+80)
+    textSize(40)
+    text("Colaborador:", xb,yb1+130)
+    textSize(30)
+    text("NuTEQ", xb+60,yb1+170)
+    textSize(24)
+    text("Nucleo de Tecnologia em Egenharia Química", xb-150,yb1+200)
+    
+    noFill()
+    if(mouseY>yVoltar && mouseY<yVoltar + alturaV && mouseX>xVoltar && mouseX<xVoltar+larguraV)
+    {
+      fill(255,171,5)
+    }
+    rect(xVoltar, yVoltar, larguraV, alturaV, suavizaB)
+    fill(0)
+    textSize(20)
+    text("Voltar", xVoltar+5, yVoltar+27)
+  }
+}
+
+function mouseClicked()//Funcao mousaClicked
+{
+  if(tela==0)
+  {
+    if(mouseY>yb1 && mouseY<yb1 + alturaB && mouseX>xb && mouseX<xb+larguraB)
+    {
+      console.log("botao1")
+      tela=1
+    }
+    if(mouseY>yb2 && mouseY<yb2 + alturaB && mouseX>xb && mouseX<xb+larguraB)
+    {
+      console.log("botao2")
+      tela=2
+    }
+    if(mouseY>yb3 && mouseY<yb3 + alturaB && mouseX>xb && mouseX<xb+larguraB)
+    {
+      console.log("botao3")
+      tela=3
+    }
+  }
+  if(tela==1)
+  {
+    if(mouseY>yVoltar && mouseY<yVoltar + alturaV && mouseX>xVoltar && mouseX<xVoltar+larguraV)
+    {
+      console.log("Voltar")
+      tela=0
+    }
+  }
+  if(tela==2)
+  {
+    if(mouseY>yVoltar && mouseY<yVoltar + alturaV && mouseX>xVoltar && mouseX<xVoltar+larguraV)
+    {
+      console.log("Voltar")
+      tela=0      
+    }
+    }
+  if(tela==3)
+  {
+    if(mouseY>yVoltar && mouseY<yVoltar + alturaV && mouseX>xVoltar && mouseX<xVoltar+larguraV)
+    {
+      console.log("Voltar")
+      tela=0      
+    }
+  }
+}
+
+function preload()//Funcao para carregar arquivos
+{
+  fontTitulo=loadFont("./Fonte/FONTANIA.OTF")
+  imgTutorial=loadImage("./Imagens/Monica2.jpg")
+  img1=loadImage("./Imagens/Slide1.JPG")
+  img2=loadImage("./Imagens/Slide2.JPG")
+}
